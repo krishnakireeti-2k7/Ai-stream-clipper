@@ -1,0 +1,5 @@
+yt-dlp
+faster-whisper
+pydub
+numpy
+opencv-python
