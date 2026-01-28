@@ -26,14 +26,13 @@ def download_youtube_video():
     OUTPUT_DIR.mkdir(exist_ok=True)
 
     cmd = [
-    "yt-dlp",
-    "-f", "bv*+ba/b",
-    "--merge-output-format", "mp4",
-    "--cookies-from-browser", "chrome",
-    "-o", str(VIDEO_PATH),
-    YOUTUBE_URL
-]
-
+        "yt-dlp",
+        "-f", "best[ext=mp4]/best",
+        "--extractor-args", "youtube:player_client=android",
+        "--merge-output-format", "mp4",
+        "-o", str(VIDEO_PATH),
+        YOUTUBE_URL
+    ]
 
     run_command(cmd)
 
@@ -41,6 +40,7 @@ def download_youtube_video():
         raise RuntimeError("Video download failed")
 
     print(f"Downloaded video to {VIDEO_PATH}")
+
 
 
 
